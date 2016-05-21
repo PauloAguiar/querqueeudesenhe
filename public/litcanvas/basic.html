@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <!-- stylesheet -->
+    <link href="./lib/css/literallycanvas.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+    <!-- dependency: React.js -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-with-addons.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+
+    <!-- Literally Canvas -->
+    <script src="./lib/js/literallycanvas.js"></script>
+  </head>
+  <body>
+    <!-- where the widget goes. you can do CSS to it. -->
+    <div class="lite" id='canvas'></div>
+
+    <br>
+      <a href="#" class="button text-center"  id="btn-download" download="my-file-name.png"><button type = "button" class = "btn btn-primary">Salvar imagem!</button></a>
+
+
+    <script>
+  $(document).ready(function() {
+    $('.lite').literallycanvas({
+      backgroundColor: 'whiteSmoke'
+    });
+  });
+
+
+</script>
+    <!-- kick it off -->
+    <script>
+        // Look ma, no jQuery!
+        /*LC.init(
+            document.getElementsByClassName('literally')[0],
+            {imageURLPrefix: './lib/img'}
+        );
+
+        /* or if you just love jQuery,
+            $('.literally').literallycanvas({imageURLPrefix: '/static/img'})
+            or
+            LC.init($('.literally').get(0), {imageURLPrefix: '/static/img'})
+        */
+    </script>
+  </body>
+</html>
