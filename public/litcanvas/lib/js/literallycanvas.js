@@ -179,6 +179,7 @@ module.exports = LiterallyCanvas = (function() {
     this.backgroundCanvas = document.createElement('canvas');
     this.backgroundCtx = this.backgroundCanvas.getContext('2d');
     this.canvas = document.createElement('canvas');
+    this.canvas.setAttribute('id', 'drawing-canvas');
     this.canvas.style['background-color'] = 'transparent';
     this.buffer = document.createElement('canvas');
     this.buffer.style['background-color'] = 'transparent';

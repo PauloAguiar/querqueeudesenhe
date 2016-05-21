@@ -22,10 +22,10 @@
   </head>
   <body>
     <!-- where the widget goes. you can do CSS to it. -->
-    <div class="lite" id='canvas'></div>
+    <div class="lite" id='canvasxx'></div>
 
     <br>
-      <a href="#" class="button text-center"  id="btn-download" download="my-file-name.png"><button type = "button" class = "btn btn-primary">Salvar imagem!</button></a>
+      <a href="#" class="button text-center"  id="btn-download" download="desenho.png"><button type = "button" class = "btn btn-primary">Salvar imagem!</button></a>
 
 
     <script>
@@ -36,6 +36,14 @@
   });
 
 
+  var button = document.getElementById('btn-download');
+button.addEventListener('click', function (e) {
+    var canvas = document.getElementById('drawing-canvas');
+    console.log(canvas);
+    var dataURL = canvas.toDataURL('image/png');
+    console.log(dataURL);
+    button.href = dataURL;
+});
 </script>
     <!-- kick it off -->
     <script>
