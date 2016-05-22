@@ -122,7 +122,9 @@
                         Audio
                         <i class="glyphicon glyphicon-play-circle"></i>
                         <i class="glyphicon glyphicon-headphones"></i>
+                        <div class="resize-test" onclick="toogleMic()" id="record-icon"> </div>
                         <i class="glyphicon glyphicon-volume-up"></i>
+                        
                     </div>
                 </div>
             </div>
@@ -132,6 +134,10 @@
     <% include ../partials/common_script %>
     <script src="./lib/js/literallycanvas.js"></script>
     <script type="text/javascript" src="/js/create.js"></script>
+    <!-- audio recorder -->
+    <script src="./lib/js/recorder.js"></script>
+    <script src="./lib/js/record_methods.js"></script>
+
     <script src="./lib/js/image.js"></script>
 </body>
 </html>
