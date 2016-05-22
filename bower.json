@@ -22,5 +22,8 @@
     "bootstrap": "^3.3.6",
     "jquery-ui": "^1.11.4",
     "react": "^15.1.0"
+  },
+  "resolutions": {
+    "waitForImages": "~2.0.0"
   }
 }
