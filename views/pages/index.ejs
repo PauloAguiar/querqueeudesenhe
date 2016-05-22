@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="col-md-4">
-                    <button id="view" type="button" class="btn btn-success btn-block">Ver Apresentações Dispóníveis</button>
+                    <button id="select" type="button" class="btn btn-success btn-block">Ver Apresentações Dispóníveis</button>
                     <button id="create" type="button" class="btn btn-success btn-block">Criar Apresentação</button>
                 </div>
                 <div class="col-md-8">
@@ -46,8 +46,13 @@
         $('#view').on('click', function (e) {
             alert("view");
         });
+
         $('#create').on('click', function (e) {
             location.href = '/create';
+        });
+
+        $('#select').on('click', function (e) {
+            location.href = '/select';
         });
         </script>
     </body>

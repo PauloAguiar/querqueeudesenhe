@@ -49,11 +49,19 @@ console.log(__dirname);
 
 // index page
 app.get('/', function(req, res) {
-    res.render('pages/index');
+    return res.render('pages/index');
 });
 
 app.get('/create', function(req, res) {
-    res.render('pages/create');
+    return res.render('pages/create');
+});
+
+app.get('/select', function(req, res) {
+    return presentationStorage.get(function(err, presData) {
+        return res.render('pages/select', {
+            presentations: presData
+        });
+    });
 });
 
 app.get('/newpresentation', function(req, res) {
@@ -73,6 +81,7 @@ app.get('/newpresentation', function(req, res) {
                 'id': newId,
                 'title': 'Nova Apresentação',
                 'size': 1,
+                'preview': 'user_img/0.png',
             };
 
             return presentationStorage.put(payload, function(err) {
@@ -229,6 +238,20 @@ app.post('/image/:id/:index', function(req, res) {
                         if(err)
                             throw err;
 
+                        if(Number(index) === 0) {
+                            return presentationStorage.getSingle({'id': Number(id)}, function(err, presData) {
+                                if(err)
+                                    throw err;
+
+                                presData['preview'] = newImgPath;
+                                return presentationStorage.put(presData, function(err, presData) {
+                                    if(err)
+                                        throw err;
+
+                                    return res.json(itemData);
+                                });
+                            });
+                        }
                         return res.json(itemData);
                     });
                 });

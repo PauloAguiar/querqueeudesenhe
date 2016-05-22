@@ -45,7 +45,7 @@ $('#saveComment').on('click', function(e) {
 $('#createPage').on('click', function(e) {
     $.getJSON('/page/' + $('body').data('id'), function(response) {
         $('body').data('size', response['size']);
-        return UpdateNavigationControls();
+        return SetCurrentPage(response['size'] - 1);
     }, 'json');
 });
 
