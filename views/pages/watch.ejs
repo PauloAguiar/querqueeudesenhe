@@ -3,6 +3,7 @@
 <html lang="en">
     <head>
         <% include ../partials/head %>
+        <% include ../partials/back_select %>
     </head>
     <body class="container">
     <div class="idHolder" id="<%= id %>"    ></div>
@@ -15,13 +16,13 @@
             </div>
             <div class="navigation-controls row-fluid">
                 <div class="col-md-5">
-                    <button id="prev" type="button" class="disabled btn btn-success pull-right">Anterior</button>
+                    <button id="prev" type="button" class="disabled btn btn-success pull-right"><i class="glyphicon glyphicon-chevron-left"></i> </button>
                 </div>
                 <div class="col-md-2 text-center">
                     <h4><span id="currentPage">X</span>/<span id="numOfPages">X</span></h4>
                 </div>
                 <div class="col-md-5">
-                    <button id="next" type="button" class="disabled btn btn-success pull-left">Próximo</button>
+                    <button id="next" type="button" class="disabled btn btn-success pull-left"><i class="glyphicon glyphicon-chevron-right"></i>  </button>
                 </div>
             </div>
 
