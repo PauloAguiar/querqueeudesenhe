@@ -19,6 +19,8 @@
     "pretty-embed": "prettyembed#^1.2.1",
     "waitForImages": "^2.2.0",
     "jquery.fitvids": "FitVids#^1.1.0",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "jquery-ui": "^1.11.4",
+    "react": "^15.1.0"
   }
 }
