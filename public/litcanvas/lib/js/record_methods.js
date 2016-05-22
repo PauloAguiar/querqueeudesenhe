@@ -17,6 +17,23 @@ navigator.getUserMedia = (
     navigator.msGetUserMedia
 );
 
+function toogleMic() {
+  var icon = document.getElementById("record-icon");
+  if (icon.classList.contains("recording")) {
+    // remove recording icon
+    stop();
+    icon.classList.remove("recording");
+  } 
+  else {
+    // insert recording icon
+    icon.classList.add("recording");
+    record();
+    
+  }
+
+
+}
+
 function record() {
   navigator.getUserMedia({audio: true}, function(localMediaStream){
     mediaStream = localMediaStream;
@@ -26,9 +43,9 @@ function record() {
     });
 
     rec.record();
-  }, function(err){
-    console.log('Not supported');
-  });
+    }, function(err){
+      console.log('Not supported');
+    });
 }
 
 function stop() {

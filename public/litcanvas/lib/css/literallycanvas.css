@@ -251,5 +251,15 @@
 }
 
 
+/*RECORDING ICON*/
 
+#record-icon {
+ height: 15vh; 
+}
+#record-icon.recording { 
+  background: red;
+  background: -webkit-radial-gradient(center, ellipse cover, #ff0000 0%,white 75%,white 100%,#ffffff 100%); 
+  background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,white 75%,white 100%,#ffffff 100%); 
+  background: radial-gradient(center, ellipse cover, #ff0000 0%,white 75%,white 100%,#ffffff 100%); 
+}
 
