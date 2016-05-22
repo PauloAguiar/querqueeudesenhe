@@ -67,7 +67,25 @@
                     </div>
                     <div class="row-fluid">
                         <div class="col-md-6 text-center">
-                            <button id="edit" type="button" class="btn btn-primary center-block">Alterar Imagem</button>
+                            <button id="edit" type="button" class="btn btn-primary center-block" data-toggle="modal" data-target="#editorModal" data-backdrop="static" data-keyboard="false">Alterar Imagem</button>
+                        </div>
+                        <div id="editorModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Título</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="lite" id='canvas'></div>
+                                        <canvas id="image-canvas" width="0" height="0" style="position: absolute; left: 0; top: 200; z-index: -1;"></canvas>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button id="saveTitle" type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-6 text-center">
                             <button id="createPage" type="button" class="btn btn-primary center-block">Criar Imagem</button>
@@ -111,6 +129,8 @@
     </div>
     </main>
     <% include ../partials/common_script %>
+    <script src="./lib/js/literallycanvas.js"></script>
     <script type="text/javascript" src="/js/create.js"></script>
+    <script src="./lib/js/image.js"></script>
 </body>
 </html>
