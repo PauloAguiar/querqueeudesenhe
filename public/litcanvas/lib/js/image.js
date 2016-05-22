@@ -9,6 +9,14 @@ var button = document.getElementById('btn-download');
       
     }
 
+    function FixImageFromUrl(url, position) {
+      if(!position) {
+        position = {x: 0, y:0, width:$("#drawing-canvas").width(), height:$("#drawing-canvas").height()};
+      }
+
+      AddImage(url, position);
+    }
+
 function setImageCanvas() {
       var image_canvas = document.getElementById('image-canvas');
       $("#image-canvas").offset($("#drawing-canvas").offset());
@@ -44,7 +52,7 @@ var image_canvas;
 
     var hasImage;
 
-    function AddImage(image_src = "") {
+    function AddImage(image_src = "", position) {
       $("#image-canvas").zIndex(1);
       draggingResizer={x:0,y:0};
       imageX=50;
@@ -59,6 +67,13 @@ var image_canvas;
           imageRight=imageX+imageWidth;
           imageBottom=imageY+imageHeight;
           draw(true,false);
+          if(position) {
+            imageX = position.x;
+            imageY = position.y;
+            imageWidth = position.width;
+            imageHeight = position.height;
+            fixImage();
+          }
       }
       img.src=image_src;
     }
@@ -285,3 +300,4 @@ function previewFile() {
     reader.readAsDataURL(file);
   }
 }
+
