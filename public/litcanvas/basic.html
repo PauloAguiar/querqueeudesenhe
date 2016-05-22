@@ -19,6 +19,11 @@
 
     <!-- Literally Canvas -->
     <script src="./lib/js/literallycanvas.js"></script>
+
+    <!-- audio recorder -->
+    <script src="./lib/js/recorder.js"></script>
+    <script src="./lib/js/record_methods.js"></script>
+
   </head>
   <body>
     <!-- where the widget goes. you can do CSS to it. -->
@@ -27,8 +32,12 @@
     <br>
       <a href="#" class="button text-center"  id="btn-download" download="desenho.png"><button type = "button" class = "btn btn-primary">Salvar imagem!</button></a>
       <div>
-        SUGA
+        <h3> Criar arquivo de áudio </h3>
+        <br>
         <!--img src="./images/sample-image.png"-->
+        <button onclick="record()">Iniciar Gravação</button>
+        <button onclick="stop()">Parar Gravação</button>
+
       </div>
 
     <script>
