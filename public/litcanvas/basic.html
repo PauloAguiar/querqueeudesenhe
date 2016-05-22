@@ -19,6 +19,11 @@
 
     <!-- Literally Canvas -->
     <script src="./lib/js/literallycanvas.js"></script>
+
+    <!-- audio recorder -->
+    <script src="./lib/js/recorder.js"></script>
+    <script src="./lib/js/record_methods.js"></script>
+
   </head>
   <body>
     <!-- where the widget goes. you can do CSS to it. -->
@@ -26,30 +31,36 @@
 
     <br>
       <a href="#" class="button text-center"  id="btn-download" download="desenho.png"><button type = "button" class = "btn btn-primary">Salvar imagem!</button></a>
+      <div>
+        <h3> Criar arquivo de áudio </h3>
+        <br>
+        <!--img src="./images/sample-image.png"-->
+        <button onclick="record()">Iniciar Gravação</button>
+        <button onclick="stop()">Parar Gravação</button>
 
+      </div>
 
     <script>
-  $(document).ready(function() {
-    $('.lite').literallycanvas({
-      backgroundColor: 'whiteSmoke'
-    });
-  });
+      LC.init(
+        document.getElementsByClassName('lite')[0],
+        {imageURLPrefix: './lib/img'}
+      );
 
 
-  var button = document.getElementById('btn-download');
-button.addEventListener('click', function (e) {
-    var canvas = document.getElementById('drawing-canvas');
-    console.log(canvas);
-    var dataURL = canvas.toDataURL('image/png');
-    console.log(dataURL);
-    button.href = dataURL;
-});
-</script>
-    <!-- kick it off -->
+      var button = document.getElementById('btn-download');
+      button.addEventListener('click', function (e) {
+        var canvas = document.getElementById('drawing-canvas');
+        console.log(canvas);
+        var dataURL = canvas.toDataURL('image/png');
+        console.log(dataURL);
+        button.href = dataURL;
+      });
+    </script>
+      <!-- kick it off -->
     <script>
         // Look ma, no jQuery!
         /*LC.init(
-            document.getElementsByClassName('literally')[0],
+            document.getElementsByClassName('lite')[0],
             {imageURLPrefix: './lib/img'}
         );
 
@@ -58,6 +69,17 @@ button.addEventListener('click', function (e) {
             or
             LC.init($('.literally').get(0), {imageURLPrefix: '/static/img'})
         */
+    </script>
+
+
+
+    <script>
+      $(document).ready(function() {
+        var lc = LC.init(document.getElementById('drawing-canvas'));
+        var newImage = new Image();
+        newImage.src = './images/sample-image.png';
+        lc.saveShape(LC.createShape('Image', {x: 10, y: 10, image: newImage}));
+      });
     </script>
   </body>
 </html>
