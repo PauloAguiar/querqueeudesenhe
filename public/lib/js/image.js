@@ -18,7 +18,7 @@ function FixImageFromUrl(url, position) {
 
 function setImageCanvas() {
       var image_canvas = document.getElementById('image-canvas');
-      //console.log({"offset":$("#drawing-canvas").offset(), "width":$("#drawing-canvas").width(), "height":$("#drawing-canvas").height()});
+      console.log({"offset":$("#drawing-canvas").offset(), "width":$("#drawing-canvas").width(), "height":$("#drawing-canvas").height()});
       $("#image-canvas").offset($("#drawing-canvas").offset());
       $("#image-canvas").attr('width', $("#drawing-canvas").width());
       $("#image-canvas").attr('height', $("#drawing-canvas").height());
@@ -78,7 +78,7 @@ var image_canvas;
             fixImage(null, true);
           }
       };
-      //console.log({"imageWidth":imageWidth, "imageHeight":imageHeight, "imageX":imageX, "imageY":imageY});
+      console.log({"imageWidth":imageWidth, "imageHeight":imageHeight, "imageX":imageX, "imageY":imageY});
       img.src=image_src;
     }
 
@@ -134,7 +134,7 @@ var image_canvas;
         // top-left
         dx=x-imageX;
         dy=y-imageY;
-        //console.log({'achor':'test', 'dx':dx, 'dy':dy});
+        console.log({'achor':'test', 'dx':dx, 'dy':dy});
         if(dx*dx+dy*dy<=rr){ return(0); }
         // top-right
         dx=x-imageRight;
@@ -154,7 +154,7 @@ var image_canvas;
 
 
     function hitImage(x,y){
-        //console.log({'x':x, 'y':y});
+        console.log({'x':x, 'y':y});
         return(x>imageX && x<imageX+imageWidth && y>imageY && y<imageY+imageHeight);
     }
 
@@ -184,9 +184,9 @@ var image_canvas;
     }
 
     function handleMouseMove(e){
-      //console.log({"imageWidth":imageWidth, "imageHeight":imageHeight, "imageX":imageX, 
-                //"imageY":imageY});
-      //console.log({"offsetX":offsetX, "offsetY":offsetY});
+      console.log({"imageWidth":imageWidth, "imageHeight":imageHeight, "imageX":imageX, 
+                "imageY":imageY});
+      console.log({"offsetX":offsetX, "offsetY":offsetY});
 
       if(draggingResizer>-1){
 
@@ -299,7 +299,7 @@ function fixImage(e, instantFix = false) {
   var blankWidth = Math.max(0, ($("#drawing-canvas").width() - 800)/2);
   if(instantFix)
     blankWidth = 0;
-  //console.log('blankWidth', blankWidth);
+  console.log('blankWidth', blankWidth);
 
   AddImageToDrawingCanvas(img, imageX - blankWidth, imageY);
   ClearAll();
