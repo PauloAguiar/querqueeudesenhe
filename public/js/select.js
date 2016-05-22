@@ -10,6 +10,7 @@ $(document).ready(function() {
         $('#products .item').addClass('grid-group-item');
     });
     $('.viewBtn').click(function(e) {
+        console.log(event.target.id);
         location.href = '/view/' + event.target.id;
     });
 });

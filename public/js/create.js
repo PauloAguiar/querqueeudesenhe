@@ -28,14 +28,11 @@ $('#saveTitle').on('click', function(e) {
 });
 
 $('#upload').on('click', function(e) {
-    var payload = {
-        'title': $('#presentationTitleInput').val()
-    };
+    var url = $('#imageURL').val();
 
-    $.post('/title/' + $('body').data('id'), payload, function(response) {
-        $('body').data('title', response['title']);
-        return UpdateNavigationControls();
-    }, 'json');
+    AddImage(url);
+
+    $("#uploadURLModal").modal("hide")
 });
 
 $('#changeComment').on('click', function(e) {
