@@ -2,3 +2,7 @@ node_modules/
 bower_components/
 npm-debug.log*
 data/
+public/user_img/*
+!public/user_img/blank*
+!public/user_img/0.png
+
