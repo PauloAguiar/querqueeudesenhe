@@ -25,6 +25,8 @@
     <script src="./lib/js/recorder.js"></script>
     <script src="./lib/js/record_methods.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="./lib/css/image-picker.css">
+    <script src="./lib/js/image-picker.js" type="text/javascript"></script>
   </head>
   <body>
     <!-- where the widget goes. you can do CSS to it. -->
@@ -40,12 +42,33 @@
     <input type="file" onchange="previewFile()">
     </div>
 
+      <br>
+    <button type = "button" onclick="ToggleGallery()" class = "btn btn-primary">Abrir galeria</button>
+
+
+      <div id='gallery'>
+      <br>
+        <button type = "button" onclick="AddSelectedImage()" class = "btn btn-primary">Adicionar</button>
+
+        <form>
+      <select class="image-picker" style="visibility: hidden;">
+        <option data-img-src="./img/arc1.png" value="1">  arc 1  </option>
+        <option data-img-src="./img/arc2.png" value="2">  arc 2  </option>
+        <option data-img-src="./img/arc3.png" value="3">  arc 3  </option>
+        <option data-img-src="./img/xformedradialgradient.png" value="5">  arc 3  </option>
+        <option data-img-src="./img/transparentradialgradient.png" value="6">  arc 3  </option>
+
+      </select>
+
+</form>
+      </div>
+
       <div>
         <h3> Criar arquivo de áudio </h3>
         <img onclick="toogleMic()" id="record-icon" src="./images/mic.png">
       </div>
 
-
+    <script src="./lib/js/gallery.js"></script>
     <script>var lc;</script>
     <script src="./lib/js/basic.js"></script>
     <script src="./lib/js/image.js"></script>
