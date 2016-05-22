@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <!-- stylesheet -->
+    <link href="./lib/css/literallycanvas.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+
+    <!-- dependency: React.js -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-with-addons.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+
+    <!-- Literally Canvas -->
+    <script src="./lib/js/literallycanvas.js"></script>
+
+    <!-- audio recorder -->
+    <script src="./lib/js/recorder.js"></script>
+    <script src="./lib/js/record_methods.js"></script>
+
+  </head>
+  <body>
+    <!-- where the widget goes. you can do CSS to it. -->
+    <div class="lite" id='canvas'></div>
+    <canvas id="image-canvas" width=0 height=0
+    style="position: absolute; left: 0; top: 200; z-index: -1;"></canvas> 
+
+    <br>
+
+      <a href="#" class="button text-center"  id="btn-download" download="desenho.png"><button type = "button" class = "btn btn-primary">Salvar imagem!</button></a>
+
+      <div class="input-group">
+    <input type="file" onchange="previewFile()">
+    </div>
+
+      <div>
+        <h3> Criar arquivo de áudio </h3>
+        <img onclick="toogleMic()" id="record-icon" src="./images/mic.png">
+      </div>
+
+
+    <script>var lc;</script>
+    <script src="./lib/js/basic.js"></script>
+    <script src="./lib/js/image.js"></script>
+  </body>
+</html>
