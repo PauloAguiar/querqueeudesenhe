@@ -1,0 +1,24 @@
+{
+  "name": "querqueeudesenhe",
+  "description": "A drawing presentation web app.",
+  "main": "server.js",
+  "authors": [
+    "Paulo Henrique Aguiar <phaguiardm@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/PauloAguiar/querqueeudesenhe",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pretty-embed": "prettyembed#^1.2.1",
+    "waitForImages": "^2.2.0",
+    "jquery.fitvids": "FitVids#^1.1.0",
+    "bootstrap": "^3.3.6"
+  }
+}

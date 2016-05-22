@@ -1,0 +1,116 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body class="container">
+        <main>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="col-md-8">
+                    <div class="well well-sm bg-success">
+                        <div class="container-fluid">
+                            <div class="row-fluid">
+                                <div class="col-md-10">
+                                    <h4>Título: <span id="presentationTitle"></span></h4>
+                                </div>
+                                <div class="col-md-2">
+                                    <button id="changeTitle" type="button" class="pull-right btn btn-primary" data-toggle="modal" data-target="#changeTitleModal" data-backdrop="static" data-keyboard="false">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                    </button>
+                                    <div id="changeTitleModal" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Título</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <input type="text" class="form-control" id="presentationTitleInput">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button id="saveTitle" type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="" class="well well-sm bg-success">
+                    ID: <span id="presentationId"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-md-8">
+                <div class="container-fluid">
+                    <div class="navigation-controls row-fluid">
+                        <div class="col-md-3">
+                            <button id="prev" type="button" class="disabled btn btn-success btn-block">Anterior</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <h4><span id="currentPage">X</span>/<span id="numOfPages">X</span></h4>
+                        </div>
+                        <div class="col-md-3">
+                            <button id="next" type="button" class="disabled btn btn-success btn-block">Próximo</button>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <img id="pageView"class="img-responsive center-block img-thumbnail" src="">
+                    </div>
+                    <div class="row-fluid">
+                        <div class="col-md-6 text-center">
+                            <button id="edit" type="button" class="btn btn-primary center-block">Alterar Imagem</button>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <button id="createPage" type="button" class="btn btn-primary center-block">Criar Imagem</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="well well-sm">
+                    <div id="comment" style="word-wrap: break-word">XXXX</div>
+                    <button id="changeComment" type="button" class="center-block btn btn-primary" data-toggle="modal" data-target="#changeCommentModal" data-backdrop="static" data-keyboard="false">Alterar Comentário</button>
+                    <!-- Modal -->
+                    <div id="changeCommentModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Comentário</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <textarea class="form-control" rows="5" id="presentationCommentInput"></textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="saveComment" type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="well well-sm">
+                    <div class="center-block">
+                        Audio
+                        <i class="glyphicon glyphicon-play-circle"></i>
+                        <i class="glyphicon glyphicon-headphones"></i>
+                        <i class="glyphicon glyphicon-volume-up"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+    <% include ../partials/common_script %>
+    <script type="text/javascript" src="/js/create.js"></script>
+</body>
+</html>

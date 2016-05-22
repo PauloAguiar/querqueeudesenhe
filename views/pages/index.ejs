@@ -1,0 +1,54 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body class="container">
+        <header>
+            <% include ../partials/header %>
+        </header>
+        <main>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="col-md-4">
+                    <button id="view" type="button" class="btn btn-success btn-block">Ver Apresentações Dispóníveis</button>
+                    <button id="create" type="button" class="btn btn-success btn-block">Criar Apresentação</button>
+                </div>
+                <div class="col-md-8">
+                    <div class="video-container">
+                        <div id="video-display"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </main>
+
+        <% include ../partials/footer %>
+        <% include ../partials/common_script %>
+
+        <script type="text/javascript" src="/pretty-embed/jquery.prettyembed.js"></script>
+        <script type="text/javascript" src="/waitForImages/dist/jquery.waitforimages.js"></script>
+        <script type="text/javascript" src="/jquery.fitvids/jquery.fitvids.js"></script>
+        <script type="text/javascript">
+        $('#video-display').prettyEmbed({
+            videoID: 'Gbf8o0o190w',
+            previewSize: 'hd',
+            // Embed controls
+            showInfo: false,
+            showControls: true,
+            loop: false,
+            colorScheme: 'dark',
+            showRelated: false,
+            useFitVids: true,
+        });
+
+        $('#view').on('click', function (e) {
+            alert("view");
+        });
+        $('#create').on('click', function (e) {
+            location.href = '/create';
+        });
+        </script>
+    </body>
+</html>
