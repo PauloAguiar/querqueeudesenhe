@@ -53,7 +53,7 @@
 .literally{
 	position:relative;
   background-color:#ddd;
-  min-height:70vh;
+  min-height:65vh;
   -webkit-touch-callout:none;
   -webkit-user-select:none;
   -khtml-user-select:none;
@@ -374,3 +374,16 @@
   background: radial-gradient(center, ellipse cover, #ff0000 0%,white 75%,white 100%,#ffffff 100%); 
 }
 
+.resize-test{
+  /*float: right;
+  background-size: 100% auto;*/
+  background-size: 40px 40px;
+  background-image: url("/images/mic.png");
+  width: 40px;
+  height: 40px;
+}
+
+.upload-link{
+  height: 25px;
+
+}
