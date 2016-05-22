@@ -5,6 +5,7 @@ var fileDB = require('json-file-db');
 var fs = require('fs');
 var fsE = require('fs-extra');
 var bodyParser = require('body-parser')
+var util = require('util');
 
 var app = express();
 
@@ -40,10 +41,8 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 
 app.use(morgan('dev'))
 console.log(__dirname);
@@ -194,6 +193,63 @@ app.get('/page/:id/:index', function(req, res) {
         return res.json(data);
     });
 });
+
+app.post('/image/:id/:index', function(req, res) {
+    var id = req.params.id;
+    var index = req.params.index;
+    var payload = req.body;
+
+    var base64img = payload['img64'];
+
+    return controlStorage.getSingle('control', function(err, controlData) {
+        if(err)
+            throw err;
+
+        var imageBuffer = decodeBase64Image(base64img);
+        var newImgPath = 'user_img/' + controlData["img_id"] + '.png';
+        return fs.writeFile('./public/' + newImgPath, imageBuffer.data, function(err)
+        {
+            if(err)
+                throw err;
+
+            var currentPresentationStorage = fileDB('data/presentation/p_' + id + '_items.json');
+
+            return currentPresentationStorage.getSingle({'id': Number(index)}, function(err, itemData) {
+                if (err)
+                    throw err;
+
+                itemData['img_path'] = newImgPath;
+
+                return currentPresentationStorage.put(itemData, function(err) {
+                    if(err)
+                        throw err;
+
+                    controlData['img_id'] = controlData['img_id'] + 1;
+                    return controlStorage.put(controlData, function(err) {
+                        if(err)
+                            throw err;
+
+                        return res.json(itemData);
+                    });
+                });
+            });
+        });
+    });
+});
+
+function decodeBase64Image(dataString) {
+  var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/),
+      response = {};
+
+  if (matches.length !== 3) {
+    return new Error('Invalid input string');
+  }
+
+  response.type = matches[1];
+  response.data = new Buffer(matches[2], 'base64');
+
+  return response;
+}
 
 app.listen(app.get('port'),
     function() {

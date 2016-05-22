@@ -62,6 +62,7 @@ function SetCurrentPage(pageNum, callback) {
         $('body').data('comment', response['comment']);
         $('body').data('index', response['id']);
         console.log(response);
+        $('body').data("img_path", response['img_path']);
         $("#pageView").attr("src", response['img_path']);
         return UpdateNavigationControls(callback);
     }, 'json');
@@ -109,4 +110,13 @@ $('#editorModal').on('shown.bs.modal', function(e) {
     canvas = document.getElementById('drawing-canvas');
     setImageCanvas();
     context = canvas.getContext('2d');
-})
+    return FixImageFromUrl($('body').data("img_path"));
+});
+
+$('#saveImage').on('click', function(e) {
+    var payload = { 'img64': lc.getImage().toDataURL('image/png') };
+
+    $.post('/image/' + $('body').data('id') + '/' + $('body').data('index'), payload, function(response) {
+        return SetCurrentPage($('body').data('index'), null);
+    });
+});
