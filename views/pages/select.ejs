@@ -3,26 +3,26 @@
 <html lang="en">
     <head>
         <% include ../partials/head %>
+        <% include ../partials/home %>
     </head>
     <body class="container">
         <main>
         <div class="container">
-            <div class="well well-sm">
-                <strong>Display</strong>
+            <div class="well well-sm no-color" style="border-bottom: 0px">
+                <strong>Modo de Exibição</strong>
                 <div class="btn-group">
                     <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-                    </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-                class="glyphicon glyphicon-th"></span>Grid</a>
+                    </span>Lista</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span>Gride</a>
+                </div>
             </div>
-        </div>
-        <div id="products" class="row list-group">
+            <div id="products" class="row list-group">
             <% presentations.forEach(function(p) { %>
             <div class="item  col-xs-4 col-lg-4">
                 <div class="thumbnail">
                     <img class="group list-group-image" src="<%= p.preview %>" alt="" />
                     <div class="caption">
                         <h4 class="group inner list-group-item-heading">
-                        <%= p.title %></h4>
+                        <b> Título: </b>    <%= p.title %></h4>
                         <p class="group inner list-group-item-text">
                             <%= p.size %> <% if(p.size > 1){ %>
                                                Páginas</p>
@@ -35,8 +35,8 @@
                             Não avaliado
                         <% } %>
                         <div class="row">
-                            <div class="col-xs-12 col-md-6">
-                                <a class="viewBtn btn btn-success" id="<%= p.id %>" data-toggle="modal" data-target="#watchModal" data-backdrop="static" data-keyboard="false">View</a>
+                            <div class="col-xs-12 " style="padding: 0 90px">
+                                <a class="viewBtn" id="<%= p.id %>"><img src="./img/ver.png"> </a>
                             </div>
                         </div>
                     </div>

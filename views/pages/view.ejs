@@ -3,6 +3,7 @@
 <html lang="en">
     <head>
         <% include ../partials/head %>
+        <% include ../partials/home %>        
     </head>
     <body class="container">
         <header>
@@ -12,9 +13,8 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="col-md-4">
-                    <a href="#"> <img class="arrow-image" id="select" src="./img/class-new.png"> </a>
-                    <a href="#"> <img class="arrow-image" id="create" src="./img/create-class-new.png"> </a>
-                    <a href="#">  <img class="arrow-image" id="new" src="./img/class-new.png"> </a>
+                    <button id="view" type="button" class="btn btn-success btn-block">Ver Apresentações Dispóníveis</button>
+                    <button id="create" type="button" class="btn btn-success btn-block">Criar Apresentação</button>
                 </div>
                 <div class="col-md-8">
                     <div class="video-container">
@@ -27,7 +27,6 @@
 
         <% include ../partials/footer %>
         <% include ../partials/common_script %>
-
         <script type="text/javascript" src="/pretty-embed/jquery.prettyembed.js"></script>
         <script type="text/javascript" src="/waitForImages/dist/jquery.waitforimages.js"></script>
         <script type="text/javascript" src="/jquery.fitvids/jquery.fitvids.js"></script>
@@ -47,17 +46,8 @@
         $('#view').on('click', function (e) {
             alert("view");
         });
-
         $('#create').on('click', function (e) {
-            location.href = '/create';
-        });
-
-        $('#select').on('click', function (e) {
-            location.href = '/select';
-        });
-
-        $('#new').on('click', function (e) {
-            location.href = '/new';
+            alert("create");
         });
         </script>
     </body>
