@@ -1511,7 +1511,7 @@ defineCanvasRenderer('SelectionBox', (function() {
 defineCanvasRenderer('Image', function(ctx, shape, retryCallback) {
   if (shape.image.width) {
     if (shape.scale === 1) {
-      return ctx.drawImage(shape.image, shape.x, shape.y);
+      return ctx.drawImage(shape.image, shape.x, shape.y, shape.image.width, shape.image.height);
     } else {
       return ctx.drawImage(shape.image, shape.x, shape.y, shape.image.width * shape.scale, shape.image.height * shape.scale);
     }
