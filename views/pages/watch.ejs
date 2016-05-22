@@ -26,8 +26,14 @@
             </div>
 
             <div class="navigation-controls row-fluid">
-                <div class="col-md-12">
-                    <button id="rate" type="button" class=" btn btn-success pull-right" data-toggle="modal" data-target="#rateModal" data-backdrop="static" data-keyboard="false">Avaliar</button>
+                <div id="notify" class="col-md-8">
+                </div>
+                <div class="col-md-1">
+                    <button id="rate" type="button" class=" btn btn-primary pull-right" data-toggle="modal" data-target="#rateModal" data-backdrop="static" data-keyboard="false">Avaliar</button>
+                </div>
+
+                <div class="col-md-2">
+                    <button id="change" type="button" class=" btn btn-primary pull-right" data-toggle="modal" data-target="#suggestModal" data-backdrop="static" data-keyboard="false">Sugerir Alteração</button>
                 </div>
 
                 <div id="rateModal" class="modal fade" role="dialog">
@@ -44,7 +50,25 @@
                                 <textarea class="form-control" rows="5" id="presentationCommentInput"></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button id="submitFeedback" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                                <button id="submitFeedback" type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="suggestModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Sugerir Alteração</h4>
+                            </div>
+                            <div class="modal-body">
+                                <textarea class="form-control" rows="5" id="presentationCommentInput"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="submitSuggest" type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
                             </div>
                         </div>
                     </div>

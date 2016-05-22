@@ -50,13 +50,18 @@ $('#prev').on('click', function(e) {
     return SetCurrentPage($('body').data('index') - 1);
 });
 
-$('#rate').on('click', function(e) {
+$('#submitFeedback').on('click', function(e) {
     console.log($('#input-id').val());
     var payload = {
         'rate': $('#input-id').val()
     };
 
     $.post('/rate/' + $('body').data('id'), payload, function(response) {
+        $('#notify').html("<div id=\"alert\" class=\"alert alert-success fade in\"><strong>Concluído!</strong> Sua avaliação foi enviada.</div>");
         console.log(response);
     }, 'json');
+});
+
+$('#submitSuggest').on('click', function(e) {
+    $('#notify').html("<div id=\"alert\" class=\"alert alert-success fade in\"><strong>Concluído!</strong> Sua sugestão foi enviada.</div>");
 });
