@@ -3,7 +3,6 @@
 <html lang="en">
     <head>
         <% include ../partials/head %>
-        <% include ../partials/back_select %>
     </head>
     <body class="container">
     <div class="idHolder" id="<%= id %>"    ></div>
@@ -16,19 +15,26 @@
             </div>
             <div class="navigation-controls row-fluid">
                 <div class="col-md-5">
-                    <button id="prev" type="button" class="disabled btn btn-success pull-right"><i class="glyphicon glyphicon-chevron-left"></i> </button>
+                    <button id="prev" type="button" class="disabled btn btn-success pull-right">Anterior</button>
                 </div>
                 <div class="col-md-2 text-center">
                     <h4><span id="currentPage">X</span>/<span id="numOfPages">X</span></h4>
                 </div>
                 <div class="col-md-5">
-                    <button id="next" type="button" class="disabled btn btn-success pull-left"><i class="glyphicon glyphicon-chevron-right"></i>  </button>
+                    <button id="next" type="button" class="disabled btn btn-success pull-left">Próximo</button>
                 </div>
             </div>
 
             <div class="navigation-controls row-fluid">
-                <div class="col-md-12">
-                    <button id="rate" type="button" class=" btn btn-success pull-right" data-toggle="modal" data-target="#rateModal" data-backdrop="static" data-keyboard="false" style="background-color: #ffffff; height: 50px; border: solid 0px;"><img src="/img/avaliar.png" style="height: 40px"> </button>
+
+                <div id="notify" class="col-md-8">
+                </div>
+                <div class="col-md-1">
+                    <button id="rate" type="button" class=" btn btn-primary pull-right" data-toggle="modal" data-target="#rateModal" data-backdrop="static" data-keyboard="false">Avaliar</button>
+                </div>
+
+                <div class="col-md-2">
+                    <button id="change" type="button" class=" btn btn-primary pull-right" data-toggle="modal" data-target="#suggestModal" data-backdrop="static" data-keyboard="false">Sugerir Alteração</button>
                 </div>
 
                 <div id="rateModal" class="modal fade" role="dialog">
@@ -45,7 +51,25 @@
                                 <textarea class="form-control" rows="5" id="presentationCommentInput"></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button id="submitFeedback" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                                <button id="submitFeedback" type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="suggestModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Sugerir Alteração</h4>
+                            </div>
+                            <div class="modal-body">
+                                <textarea class="form-control" rows="5" id="presentationCommentInput"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="submitSuggest" type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
                             </div>
                         </div>
                     </div>

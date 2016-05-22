@@ -93,7 +93,7 @@ app.get('/newpresentation', function(req, res) {
                 'id': newId,
                 'title': 'Nova Apresentação',
                 'size': 1,
-                'preview': 'user_img/0.png',
+                'preview': 'user_img/blank.png',
                 'ratings': 0,
                 'rate': 0,
             };
@@ -106,7 +106,7 @@ app.get('/newpresentation', function(req, res) {
                 var currentItem = {
                     'id': 0,
                     'comment': '',
-                    'img_path': 'user_img/0.png',
+                    'img_path': 'user_img/blank.png',
                 };
 
                 return currentPresentationStorage.put(currentItem, function(err) {
