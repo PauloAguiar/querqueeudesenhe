@@ -90,3 +90,12 @@
 {
     margin: 0 0 11px;
 }
+
+@font-face {
+    font-family: font-default;
+    src: url(/public/font/HVD_Comic_Serif_Pro.otf);
+}
+
+body {
+    font-family: font-default;
+}

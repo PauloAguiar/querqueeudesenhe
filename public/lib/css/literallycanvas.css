@@ -381,3 +381,16 @@
   height: 25px;
 
 }
+
+.no-color{
+  background-color: #ffffff;
+  border-color: #ffffff;
+  border-bottom: solid 1px;
+}
+
+.arrow-image{
+  width: 100%;
+  background-image: url("/img/arrow1.jpg");
+  background-size: 100% auto;
+  margin-bottom: 20px;
+}
