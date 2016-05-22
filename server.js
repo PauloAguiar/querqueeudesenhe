@@ -64,6 +64,14 @@ app.get('/select', function(req, res) {
     });
 });
 
+app.get('/new', function(req, res) {
+    return presentationStorage.get(function(err, presData) {
+        return res.render('pages/new', {
+            presentations: presData
+        });
+    });
+});
+
 app.get('/newpresentation', function(req, res) {
     return controlStorage.getSingle('control', function(err, data) {
         if (err) {
