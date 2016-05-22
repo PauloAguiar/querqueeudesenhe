@@ -84,24 +84,8 @@
                                     </div>
                                     <div class="modal-footer" style="text-align: center">
                                         <button id="saveImage" type="button" class="btn btn-default" data-dismiss="modal"><img src="./images/save.png" style="margin:0px auto;display:block"></button>
-                                        <button style=" float: right" type="button" class="btn btn-default" data-toggle="modal" data-target="#uploadURLModal" data-backdrop="static" data-keyboard="false"><img class="upload-link" src="./images/upload.png"></button>
-                                        <div id="uploadURLModal" class="modal fade" role="dialog">
-                                            <div class="modal-dialog">
-                                                <!-- Modal content-->
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Enviar imagem</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <input type="text" class="form-control" id="imageURL">
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button id="upload" type="button" class="btn btn-default">Enviar</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <input type="text" class="form-control" id="imageURL">
+                                        <button id="upload" type="button" class="btn btn-default">Enviar</button>
                                     </div>
                                 </div>
                             </div>
@@ -150,12 +134,12 @@
     </div>
     </main>
     <% include ../partials/common_script %>
-    <script src="./lib/js/literallycanvas.js"></script>
+    <script src="/lib/js/literallycanvas.js"></script>
     <script type="text/javascript" src="/js/create.js"></script>
     <!-- audio recorder -->
-    <script src="./lib/js/recorder.js"></script>
-    <script src="./lib/js/record_methods.js"></script>
+    <script src="/lib/js/recorder.js"></script>
+    <script src="/lib/js/record_methods.js"></script>
 
-    <script src="./lib/js/image.js"></script>
+    <script src="/lib/js/image.js"></script>
 </body>
 </html>

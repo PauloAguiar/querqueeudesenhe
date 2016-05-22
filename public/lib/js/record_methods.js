@@ -21,7 +21,7 @@ function toogleMic() {
   var icon = document.getElementById("record-icon");
   if (icon.classList.contains("recording")) {
     // remove recording icon
-    stop();
+    stopRecord();
     icon.classList.remove("recording");
   } 
   else {
@@ -30,8 +30,6 @@ function toogleMic() {
     record();
     
   }
-
-
 }
 
 function record() {
@@ -48,7 +46,7 @@ function record() {
     });
 }
 
-function stop() {
+function stopRecord() {
   //mediaStream.stop();
 
   rec.stop();
