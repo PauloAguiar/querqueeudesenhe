@@ -27,6 +27,17 @@ $('#saveTitle').on('click', function(e) {
     }, 'json');
 });
 
+$('#upload').on('click', function(e) {
+    var payload = {
+        'title': $('#presentationTitleInput').val()
+    };
+
+    $.post('/title/' + $('body').data('id'), payload, function(response) {
+        $('body').data('title', response['title']);
+        return UpdateNavigationControls();
+    }, 'json');
+});
+
 $('#changeComment').on('click', function(e) {
     $('#presentationCommentInput').val($('body').data('comment'));
 });

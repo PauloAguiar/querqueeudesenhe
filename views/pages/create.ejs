@@ -70,9 +70,9 @@
                             <button id="edit" type="button" class="btn btn-primary center-block" data-toggle="modal" data-target="#editorModal" data-backdrop="static" data-keyboard="false">Alterar Imagem</button>
                         </div>
                         <div id="editorModal" class="modal fade" role="dialog">
-                            <div class="modal-dialog">
+                            <div class="modal-dialog modal-dialog-full">
                                 <!-- Modal content-->
-                                <div class="modal-content">
+                                <div class="modal-content modal-content-full">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                         <img src="./images/edit-logo.png" style="margin:0px auto;display:block">
@@ -83,8 +83,24 @@
                                     </div>
                                     <div class="modal-footer" style="text-align: center">
                                         <button id="saveImage" type="button" class="btn btn-default" data-dismiss="modal"><img src="./images/save.png" style="margin:0px auto;display:block"></button>
-                                        <button  style=" float: right" type="button" class="btn btn-default" data-dismiss="modal"><img class="upload-link" src="./images/upload.png" ></button>
-
+                                        <button style=" float: right" type="button" class="btn btn-default" data-toggle="modal" data-target="#uploadURLModal" data-backdrop="static" data-keyboard="false"><img class="upload-link" src="./images/upload.png"></button>
+                                        <div id="uploadURLModal" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+                                                <!-- Modal content-->
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Enviar imagem</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="text" class="form-control" id="imageURL">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button id="upload" type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -24,10 +24,19 @@
                         <h4 class="group inner list-group-item-heading">
                         <%= p.title %></h4>
                         <p class="group inner list-group-item-text">
-                            <%= p.size %> Páginas</p>
+                            <%= p.size %> <% if(p.size > 1){ %>
+                                               Páginas</p>
+                                            <% } else { %>
+                                               Página</p>
+                                             <% } %>
+                        <% if(p.rate > 0){ %>
+                            <%= (p.rate).toFixed(1) %></h4><i class="glyphicon glyphicon-star-empty"></i>
+                        <% } else { %>
+                            Não avaliado
+                        <% } %>
                         <div class="row">
                             <div class="col-xs-12 col-md-6">
-                                <a class="btn btn-success" href="view/<%= p.id %>">View</a>
+                                <a class="viewBtn btn btn-success" id="<%= p.id %>" data-toggle="modal" data-target="#watchModal" data-backdrop="static" data-keyboard="false">View</a>
                             </div>
                         </div>
                     </div>
@@ -36,6 +45,42 @@
             <% }); %>
         </div>
     </div>
+
+    <div id="watchModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row-fluid">
+                            <div class="col-md-12">
+                                <img id="pageView"class="img-responsive center-block img-thumbnail" src="">
+                            </div>
+                        </div>
+                        <div class="navigation-controls  row-fluid">
+                            <div class="col-md-3">
+                                <button id="prev" type="button" class="disabled btn btn-success btn-block">Anterior</button>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <h4><span id="currentPage">X</span>/<span id="numOfPages">X</span></h4>
+                            </div>
+                            <div class="col-md-3">
+                                <button id="next" type="button" class="disabled btn btn-success btn-block">Próximo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveTitle" type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     </main>
     <% include ../partials/common_script %>
     <script type="text/javascript" src="/js/select.js"></script>

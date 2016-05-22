@@ -64,6 +64,10 @@ app.get('/select', function(req, res) {
     });
 });
 
+app.get('/view/:id', function(req, res) {
+    return res.render('pages/watch', {'id': req.params.id});
+});
+
 app.get('/newpresentation', function(req, res) {
     return controlStorage.getSingle('control', function(err, data) {
         if (err) {
@@ -82,6 +86,8 @@ app.get('/newpresentation', function(req, res) {
                 'title': 'Nova Apresentação',
                 'size': 1,
                 'preview': 'user_img/0.png',
+                'ratings': 0,
+                'rate': 0,
             };
 
             return presentationStorage.put(payload, function(err) {
@@ -140,6 +146,28 @@ app.post('/comment/:id/:index', function(req, res) {
     });
 });
 
+app.post('/rate/:id', function(req, res) {
+    var id = req.params.id;
+    var payload = req.body;
+    var rate = payload.rate;
+    var comment = payload.comment;
+
+    console.log(payload);
+    return presentationStorage.getSingle({'id': Number(id)}, function(err, data) {
+        if (err)
+            throw err;
+
+        data['rate'] = (data['rate']*data['ratings'] + rate)/(data['ratings'] + 1) ;
+        data['ratings'] = data['ratings'] + 1;
+        return presentationStorage.put(data, function(err) {
+            if(err)
+                throw err;
+
+            return res.json(data);
+        });
+    });
+});
+
 app.post('/title/:id', function(req, res) {
     var id = req.params.id;
     var payload = req.body;
@@ -154,6 +182,18 @@ app.post('/title/:id', function(req, res) {
                 throw err;
             return res.json(data);
         });
+    });
+});
+
+app.get('/pres/:id', function(req, res) {
+    var id = req.params.id;
+    var payload = req.body;
+
+    return presentationStorage.getSingle({'id': Number(id)}, function(err, data) {
+        if (err)
+            throw err;
+
+        return res.json(data);
     });
 });
 

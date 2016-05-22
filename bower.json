@@ -21,7 +21,8 @@
     "jquery.fitvids": "FitVids#^1.1.0",
     "bootstrap": "^3.3.6",
     "jquery-ui": "^1.11.4",
-    "react": "^15.1.0"
+    "react": "^15.1.0",
+    "bootstrap-star-rating": "^4.0.1"
   },
   "resolutions": {
     "waitForImages": "~2.0.0"

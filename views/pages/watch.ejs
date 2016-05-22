@@ -1,0 +1,58 @@
+<!-- views/pages/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+    </head>
+    <body class="container">
+    <div class="idHolder" id="<%= id %>"    ></div>
+    <main>
+        <div class="container">
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <img id="pageView"class="img-responsive center-block img-thumbnail" src="">
+                </div>
+            </div>
+            <div class="navigation-controls row-fluid">
+                <div class="col-md-5">
+                    <button id="prev" type="button" class="disabled btn btn-success pull-right">Anterior</button>
+                </div>
+                <div class="col-md-2 text-center">
+                    <h4><span id="currentPage">X</span>/<span id="numOfPages">X</span></h4>
+                </div>
+                <div class="col-md-5">
+                    <button id="next" type="button" class="disabled btn btn-success pull-left">Próximo</button>
+                </div>
+            </div>
+
+            <div class="navigation-controls row-fluid">
+                <div class="col-md-12">
+                    <button id="rate" type="button" class=" btn btn-success pull-right" data-toggle="modal" data-target="#rateModal" data-backdrop="static" data-keyboard="false">Avaliar</button>
+                </div>
+
+                <div id="rateModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Avaliação</h4>
+                            </div>
+                            <div class="modal-body">
+                                <input id="input-id" type="text" class="rating" data-size="md" >
+                                <span>Comentário:</span>
+                                <textarea class="form-control" rows="5" id="presentationCommentInput"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="submitFeedback" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <% include ../partials/common_script %>
+    <script type="text/javascript" src="/js/watch.js"></script>
+</body>
+</html>
